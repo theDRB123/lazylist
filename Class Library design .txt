@@ -1,0 +1,26 @@
+/////// Class Library design //////
+
+functionality
+
+list View
+--total count of items
+--item title
+--item description
+--item cost
+--item link
+--item image from amazon 
+--item categories
+--item Check
+--add Item
+--edit Item
+--delete Item
+
+manager View
+--total cost count
+--highest Costing Category
+--{will try to implement pie graph}
+
+
+
+
+

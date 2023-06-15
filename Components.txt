@@ -1,0 +1,55 @@
+Container
+-->title : absolute 
+-->Content
+	-->ItemList
+		->Item
+			-> CheckBox
+			-> ItemName
+			-> Item Description
+			-> Item Price
+
+		->AddNewItemButton
+	-->ViewPanel
+		-->CostViewToggleButton
+		-->ItemView
+			->ItemName
+			->ItemCost
+			->ItemDescription
+			->ItemCategory
+			->ItemLink
+		-->NewItemView
+			->NewItemName
+			->NewItemCost
+			->NewItemDescription
+		(reuse)	->NewItemCategories
+				->Label
+			(reuse)	->NewItemCategoryList
+					->CategoryName
+					->CategoryDeleteButton
+			(reuse)	->AddCategoryButton
+			->NewItemLink
+			-->NewItemOptionBar
+			(reuse)	->NewItemAdd
+			(reuse)	->NewItemCancel
+		-->EditItemView
+			->EditItemName
+			->EditItemCost
+			->EditItemDescription
+		(reuse)	->EditItemCategories
+				->Label
+			(reuse)	->EditItemCategoryList
+					->CategoryName
+					->CategoryDeleteButton
+			(reuse)	->AddCategoryButton
+			->EditItemLink
+			-->EditItemOptionBar
+			(reuse)	->EditItemSave
+			(reuse)	->EditItemCancel
+		-->CostView
+			->Label
+			->TotalCost
+			->CostPerCategoryList
+				->Category
+					->label
+					->Cost
+			
