@@ -17,6 +17,9 @@ Container
 			->ItemDescription
 			->ItemCategory
 			->ItemLink
+			->ItemViewOptionMenu
+				->EditButton
+				->DeleteButton
 		-->NewItemView
 			->NewItemName
 			->NewItemCost
