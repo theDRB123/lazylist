@@ -1,6 +1,9 @@
 const title = () => {
   return (
-    <div className="Title">title</div>
+    <div className="TitleContainer">
+    <div className="Title"><span>The LazyList</span></div>
+    <div className="Logo">Logo</div>
+    </div>
   )
 }
 
