@@ -1,12 +1,15 @@
 const ItemCategory = () => {
   return (
-    <div className="ItemCategory">
-      <form action="ItemCategoryEditForm">
-        <label className="ItemCategoryEditLabel">ItemCatrgoryEdit</label>
-        <input className="ItemCategoryEditInput" type="text" name="ItemCategoryEdit" id="ItemCategoryEdit" />
-      </form>
-      <div className='ItemCategoryDeleteButton' />ItemCategoryDeleteButton<div />
-    </div>
+
+
+    <li className="ItemCategory">
+    <form action="ItemCategoryEditForm">
+      <label className="ItemCategoryEditLabel">ItemCategoryEdit</label>
+      <input className="ItemCategoryEditInput" type="text" name="ItemCategoryEdit" id="ItemCategoryEdit" n placeholder="category" />
+    </form>
+      <div className='ItemCategoryDeleteButton'>Bin </div>
+    </li >
+
   )
 }
 

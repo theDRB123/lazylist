@@ -2,7 +2,7 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
@@ -31,7 +31,7 @@
     max-width: 100vw - 100px;
     display: flex;
     flex-direction: row;
-    
+
 }
 
 .Title {
@@ -44,12 +44,13 @@
     font-size: 9vh;
     font-weight: 700;
 }
+
 .Title span {
     display: flex;
     vertical-align: middle;
     align-items: center;
     justify-content: center;
-    margin-left: 4vw; 
+    margin-left: 4vw;
 }
 
 .Logo {
@@ -75,23 +76,25 @@
     width: calc(var(--wu) * 1090);
     border-radius: 15px;
 
-    margin-left: 1.5vw ;
+    margin-left: 1.5vw;
 
     padding-top: 13px;
     /* padding-bottom: 13px ; */
-    overflow-y: auto;    
+    overflow-y: auto;
 }
 
 ::-webkit-scrollbar {
     background-color: orange;
     border-radius: 5px;
     width: 15px;
-}   
+}
+
 ::-webkit-scrollbar-track {
     background-color: var(--blue);
     border-radius: 5px;
     border: 3px solid var(--blue);
 }
+
 ::-webkit-scrollbar-thumb {
     background-color: var(--black);
     border-radius: 10px;
@@ -113,23 +116,25 @@
     overflow-x: visible;
 }
 
-.Item:hover{
+.Item:hover {
     /* height: calc(var(--hu) * 155); */
     /* width: calc(var(--wu) * 1035); */
     /* transition-delay: 100ms; */
     background-color: var(--pink);
     transition: 500ms;
 }
+
 .CheckBox {
     display: flex;
     /* position: absolute; */
-    margin-left: 5px ;
+    margin-left: 5px;
     min-height: 25px;
     min-width: 25px;
     background-color: var(--blue);
     border: 3px solid var(--black);
     border-radius: 5px;
 }
+
 .ItemListItemName {
 
     display: flex;
@@ -141,13 +146,13 @@
     vertical-align: baseline;
     align-items: center;
     justify-content: center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
     font-size: 25px;
 }
 
 .ItemListItemDescription {
-    
+
     display: flex;
     background-color: var(--black);
     color: var(--yellow);
@@ -155,11 +160,12 @@
     max-width: calc(var(--wu) * 463);
     min-width: calc(var(--wu) * 463);
     border-radius: 10px;
-    
+
     padding-left: 5px;
     font-size: 3vh;
-    
+
 }
+
 .ItemListItemCost {
 
     display: flex;
@@ -189,8 +195,15 @@
 
     padding-bottom: 12px;
     font-size: 50px;
+
+    transition: 0.3s;
 }
 
+.AddNewItemButton:hover {
+    height: 65px;
+    width: 65px;
+    translate: calc(47vw - 5px) calc(-15vh - 5px);
+}
 
 /* viewContainers */
 .ItemViewContainer,
@@ -229,10 +242,28 @@
 
     color: var(--pink);
 
-    font-size: 5vh;
+    font-size: 4vh;
 }
 
-.ItemCost {
+.NewItemName label {
+    display: none;
+}
+
+.NewItemName input {
+    background-color: var(--black);
+    width: 100%;
+    color: var(--pink);
+    border: none;
+    font-size: 4vh;
+}
+
+.NewItemName input::placeholder {
+    color: var(--pink);
+}
+
+.ItemCost,
+.NewItemCost,
+.EditItemCost {
     display: flex;
     background-color: var(--pink);
     color: var(--black);
@@ -242,11 +273,31 @@
     justify-content: center;
     align-items: center;
 
-    font-size: 5vh;
+    font-size: 4vh;
     font-weight: 600;
 }
 
-.ItemDescription {
+.NewItemCost label {
+    display: none;
+}
+
+.NewItemCost input {
+    background-color: var(--pink);
+    width: 100%;
+    text-align: center;
+    font-size: 4vh;
+    font-weight: 600;
+    border: none;
+    border: none;
+}
+
+.NewItemCost input::placeholder {
+    color: var(--black);
+}
+
+.ItemDescription,
+.NewItemDescription,
+.EditItemDescription {
     display: flex;
     height: calc(var(--hu) * 387);
     width: calc(var(--wu) * 675);
@@ -257,7 +308,27 @@
     font-weight: 450;
 }
 
-.ItemLink {
+.NewItemDescription label {
+    display: none;
+}
+
+.NewItemDescription textarea {
+    background-color: var(--pink);
+    color: var(--black);
+    border: none;
+    width: 100%;
+
+    font-size: 3vh;
+}
+
+.NewItemDescription textarea::placeholder {
+    color: var(--black);
+}
+
+
+.ItemLink,
+.NewItemLink,
+.EditItemLink {
     display: flex;
     height: calc(var(--hu) * 75);
     width: calc(var(--wu) * 725);
@@ -271,25 +342,28 @@
 
     font-size: 3vh;
 
+    margin-bottom: 10px;
 }
 
-
-.ItemCategory {
-display: flex;
-height: calc(var(--hu) * 75);
-width: calc(var(--wu) * 725);
-background-color: var(--black);
-
-color: var(--pink);
-
-align-items: center;
-padding-left: 10px;
-
+.NewItemLink label {
+    display: none;
 }
+
+.NewItemLink input {
+    display: flex;
+    width: 100%;
+    border: none;
+    height: auto;
+}
+
+.NewItemLink input::placeholder {
+    color: var(--blue)
+}
+
 
 .OptionBar {
     display: flex;
-    
+
 
     flex-direction: row;
     height: calc(var(--hu) * 77);
@@ -299,12 +373,11 @@ padding-left: 10px;
     background-color: var(--black);
 
     border-radius: 10px 10px 0px 0px;
-    
+
     color: var(--yellow);
 
     font-weight: 500;
 
-    transition-duration: 1000ms;
 }
 
 
@@ -326,8 +399,146 @@ padding-left: 10px;
     border: 3px solid var(--yellow);
     border-radius: 10px;
 }
+
 .OptionBarButton2:hover {
     border: 3px solid var(--yellow);
     border-radius: 10px;
 }
+
+/* CategoryList */
+
+.ViewItemCategory {
+    display: flex;
+    height: calc(var(--hu) * 75);
+    width: calc(var(--wu) * 725);
+    background-color: var(--black);
+
+    color: var(--pink);
+
+    align-items: center;
+    padding-left: 10px;
+
+}
+
+.ItemCategoryListContainer {
+    display: flex;
+    height: calc(var(--hu) * 75);
+    width: calc(var(--wu) * 725);
+    background-color: var(--black);
+
+    color: var(--pink);
+    
+    padding-left: 10px;
+}
+
+.CategoryLabel {
+    width: calc(100% - calc(var(--wu) * 306));
+    align-items: center;
+}
+
+.AddCategoryButton {
+    display: flex;
+    width: calc(var(--wu) * 306);
+    font-size: 2vh;
+    text-align: center;
+    align-items: center;
+}
+.AddCategoryButton button {
+    background-color: var(--black);
+    color: var(--yellow);
+    border: 2px solid var(--yellow);
+    padding: 3px;
+    border-radius: 10px;
+}
+.ItemCategoryList::-webkit-scrollbar {
+    background-color: orange;
+    border-radius: 5px;
+    width: 10px;
+}
+
+.ItemCategoryList::-webkit-scrollbar-track {
+    background-color: var(--black);
+    border-radius: 5px;
+    border: 3px solid var(--black);
+}
+
+.ItemCategoryList::-webkit-scrollbar-thumb {
+    background-color: var(--black);
+    border-radius: 10px;
+    border: 3px solid var(--blue);
+}
+
+.ItemCategoryList {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    box-sizing: content-box;
+    width: calc(var(--wu) * 350);
+
+    height: fit-content;
+    max-height: calc(var(--hu) * 350);
+    overflow-y: auto;
+
+    transform: translateY(calc(-100% + 3px)) translateX(calc(calc(var(--wu) * 725) - calc(var(--wu) * 400)));
+
+    background-color: var(--black);
+
+    list-style-type: none;
+
+    padding-top: 10px;
+
+    border-radius: 15px 15px 0px 0px;
+
+    border: 5px solid var(--black);
+}
+
+.ItemCategoryList li {
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.ItemCategory {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--yellow);
+    /* font-size: 3px; */
+    padding: 5px;
+}
+
+.ItemCategoryList li:first-child {
+    border-radius: 10px 10px 0px 0px;
+}
+.ItemCategoryList li:last-child {
+    border-radius: 0px 0px 10px 10px;
+}
+.ItemCategory label {
+    display: none;
+}
+
+.ItemCategoryEditInput {
+    display: flex;
+    background-color: var(--yellow);
+    color: var(--black);
+    width: 75%;
+    border: none;
+    font-size: 2.5vh;
+}
+
+.ItemCategoryEditInput::placeholder {
+    color: var(--black);
+}
+
+.ItemCategoryDeleteButton {
+    display: flex;
+    background-color: var(--black);
+    font-size: 3vh;
+    border-radius: 10px;
+}
+
+.CategoryLabel {
+    display: flex;
+
+}
+
 /* CostView */

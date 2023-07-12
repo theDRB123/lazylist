@@ -1,5 +1,5 @@
 const OptionBar = () => {
-  let condition = 1;
+  let condition = 2;
   
   if (condition == 1) {
   return (
@@ -12,8 +12,16 @@ const OptionBar = () => {
     
   return (
     <div className="OptionBar">
-      <div className="OptionBarButton1">Save</div>
-      <div className="OptionBarButton2">Cancel</div>
+      <div className="OptionBarButton1">
+        <button type="submit">
+          Save
+        </button>
+      </div>
+      <div className="OptionBarButton2">
+        <button >
+          cancel
+        </button>
+      </div>
     </div>
   )
   }

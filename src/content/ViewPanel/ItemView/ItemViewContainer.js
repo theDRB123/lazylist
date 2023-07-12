@@ -7,7 +7,7 @@ const ItemViewContainer = () => {
                 <div className="ItemCost">ItemCost</div>
             </div>
             <div className="ItemDescription">ItemDescription</div>
-            <div className="ItemCategory">ItemCategory</div>
+            <div className="ViewItemCategory">ItemCategory</div>
             <div className="ItemLink">ItemLink</div>
             <OptionBar />
         </div>

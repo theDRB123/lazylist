@@ -4,6 +4,11 @@ function ItemCategoryList() {
     return (
         <ul className="ItemCategoryList">
             <ItemCategory/>
+            <ItemCategory/>
+            <ItemCategory/>
+            <ItemCategory/>
+            <ItemCategory/>
+            <ItemCategory/>
         </ul>
     )
 }

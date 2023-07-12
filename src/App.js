@@ -17,6 +17,8 @@ function App() {
     }
   ])
 
+  const [ NewItem , setNewItem] = useState([])
+
   const [categories, setCategories] = useState(["category1", "category2", "category3"])
   //functions
 
@@ -58,6 +60,9 @@ function App() {
 
   // }
 
+  const handleCheck = () => {
+    
+  }
 
   return (
     <div className='Container'>
