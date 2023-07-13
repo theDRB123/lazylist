@@ -1,8 +1,10 @@
 const Category = () => {
     return (
         <li>
+            <div className="CostPerCategoryContainer">
             <div className="CategoryName">Categoryname</div>
-            <div className="CategoryCost">ItemCost</div>
+            <div className="CategoryCost">CategoryCost</div>
+            </div>
         </li>
     )
 }

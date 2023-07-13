@@ -229,11 +229,22 @@
 
     align-items: center;
     justify-content: center;
-
-
 }
 
-/* itemView */
+.CostViewLabelAndCostContainer {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--pink);
+    height: calc(var(--hu) * 125);
+    width: calc(var(--wu) * 725);
+    margin-top: calc(var(--hu) * 33);
+
+    align-items: center;
+    justify-content: center;
+}
+
+/* ViewContainer Elements */
+
 .ItemName,
 .EditItemName,
 .NewItemName {
@@ -245,11 +256,16 @@
     font-size: 4vh;
 }
 
-.NewItemName label {
+
+
+
+
+
+.NewItemName label , .EditItemName label{
     display: none;
 }
 
-.NewItemName input {
+.NewItemName input , .EditItemName input{
     background-color: var(--black);
     width: 100%;
     color: var(--pink);
@@ -257,7 +273,7 @@
     font-size: 4vh;
 }
 
-.NewItemName input::placeholder {
+.NewItemName input::placeholder , .EditItemName input::placeholder{
     color: var(--pink);
 }
 
@@ -277,11 +293,11 @@
     font-weight: 600;
 }
 
-.NewItemCost label {
+.NewItemCost label , .EditItemCost label{
     display: none;
 }
 
-.NewItemCost input {
+.NewItemCost input , .EditItemCost input{
     background-color: var(--pink);
     width: 100%;
     text-align: center;
@@ -291,7 +307,7 @@
     border: none;
 }
 
-.NewItemCost input::placeholder {
+.NewItemCost input::placeholder , .EditItemCost input::placeholder{
     color: var(--black);
 }
 
@@ -308,11 +324,11 @@
     font-weight: 450;
 }
 
-.NewItemDescription label {
+.NewItemDescription label , .EditItemDescription label{
     display: none;
 }
 
-.NewItemDescription textarea {
+.NewItemDescription textarea , .EditItemDescription textarea{
     background-color: var(--pink);
     color: var(--black);
     border: none;
@@ -321,7 +337,7 @@
     font-size: 3vh;
 }
 
-.NewItemDescription textarea::placeholder {
+.NewItemDescription textarea::placeholder , .EditItemDescription textarea::placeholder {
     color: var(--black);
 }
 
@@ -334,29 +350,26 @@
     width: calc(var(--wu) * 725);
     background-color: var(--black);
     color: var(--blue);
-    margin-top: 4vh;
+    margin-top: 3vh;
 
     text-align: center;
     justify-content: center;
-    align-items: center;
 
+    
     font-size: 3vh;
 
-    margin-bottom: 10px;
 }
 
-.NewItemLink label {
+.NewItemLink label , .EditItemLink label{
     display: none;
 }
 
-.NewItemLink input {
-    display: flex;
-    width: 100%;
+.NewItemLink input , .EditItemLink input{
+    margin-top: 0px;
     border: none;
-    height: auto;
 }
 
-.NewItemLink input::placeholder {
+.NewItemLink input::placeholder , .EditItemLink input::placeholder{
     color: var(--blue)
 }
 
@@ -387,6 +400,13 @@
     align-items: center;
     justify-content: center;
 }
+.OptionBarButton1 button {
+    background-color: var(--black);
+    border: none;
+    color: var(--yellow);
+    padding: 5px;
+}
+
 
 .OptionBarButton2 {
     display: flex;
@@ -394,13 +414,20 @@
     align-items: center;
     justify-content: center;
 }
+.OptionBarButton2 button {
+    background-color: var(--black);
+    border: none;
+    color: var(--yellow);
+    padding: 5px;
+}
 
-.OptionBarButton1:hover {
+
+.OptionBarButton1 button:hover {
     border: 3px solid var(--yellow);
     border-radius: 10px;
 }
 
-.OptionBarButton2:hover {
+.OptionBarButton2 button:hover {
     border: 3px solid var(--yellow);
     border-radius: 10px;
 }
@@ -541,4 +568,87 @@
 
 }
 
-/* CostView */
+/* for cost View */
+.TotalCostLabel {
+    display: flex;
+    width: calc(var(--wu) * 262);
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vh;
+    font-weight: 400;
+}
+.TotalCost {
+    display: flex;
+    width: calc(var(--wu) * calc(725 - 262));
+    height: 100%;
+    /* text-align: center; */
+    justify-content: center;
+    align-items: center;
+    font-size: 5vh;
+    font-weight: 600;
+
+    background-color: var(--black);
+    color: var(--pink);
+
+    border-radius: 10px 0px 0px 10px;
+}
+
+
+
+.CostPerCategoryList {
+
+    display: flex;
+
+    margin: auto;
+    margin-bottom: 0px;
+
+    height: calc(var(--hu) * 680);
+    width: calc(var(--wu) * 670);
+
+    background-color: var(--black);
+
+    border-radius: 10px 10px 0px 0px;
+
+    list-style-type: none;
+
+    justify-content: center;
+}
+
+.CostPerCategoryContainer {
+    
+    display: flex;
+
+    height: calc(var(--hu) * 90);
+    width: calc(var(--wu) * 630);
+
+    background-color: var(--green);
+
+    margin-top: 13px;
+
+    border-radius: 10px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.CategoryName {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+.CategoryCost {
+    display: flex;
+    width: 45%;
+    height: 75%;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--black);
+    color: var(--green);
+
+    border-radius: 10px;
+}

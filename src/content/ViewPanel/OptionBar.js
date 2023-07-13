@@ -1,29 +1,33 @@
 const OptionBar = () => {
-  let condition = 2;
-  
+  let condition = 1;
+
   if (condition == 1) {
-  return (
-        <div className="OptionBar">
-          <div className="OptionBarButton1">Edit Item</div>
-          <div className="OptionBarButton2">Delete Item</div>
+    return (
+      <div className="OptionBar">
+        <div className="OptionBarButton1">
+          <button type="submit">Edit Item</button>
         </div>
+        <div className="OptionBarButton2">
+          <button type="submit">Delete Item</button>
+        </div>
+      </div>
     )
   } else {
-    
-  return (
-    <div className="OptionBar">
-      <div className="OptionBarButton1">
-        <button type="submit">
-          Save
-        </button>
+
+    return (
+      <div className="OptionBar">
+        <div className="OptionBarButton1">
+          <button type="submit">
+            Save
+          </button>
+        </div>
+        <div className="OptionBarButton2">
+          <button >
+            cancel
+          </button>
+        </div>
       </div>
-      <div className="OptionBarButton2">
-        <button >
-          cancel
-        </button>
-      </div>
-    </div>
-  )
+    )
   }
 }
 
