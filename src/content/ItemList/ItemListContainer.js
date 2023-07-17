@@ -1,11 +1,12 @@
 import ItemList from './ItemList'
 import AddNewItemButton from './AddNewItemButton'
-const ItemListContainer = () => {
+import Item from './Item'
+const ItemListContainer = ( {Items , handle_newItemButton , handle_itemView}) => {
     return (
         <>
             <div className='ItemListContainer'>
-                <ItemList />
-                <AddNewItemButton />
+                <ItemList Items={Items} handle_itemView={handle_itemView} />
+                <AddNewItemButton handle_newItemButton={handle_newItemButton} />
             </div>
         </>
     )

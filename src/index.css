@@ -463,14 +463,35 @@
     align-items: center;
 }
 
+.ButtonContainer {
+    display: flex;
+    width: calc(var(--wu) * 350);
+    margin: auto;
+    margin-right: 0px;
+    align-items: center;
+    justify-content: end;
+}
+
 .AddCategoryButton {
     display: flex;
     width: calc(var(--wu) * 306);
     font-size: 2vh;
     text-align: center;
     align-items: center;
+    justify-content: center;
 }
-.AddCategoryButton button {
+.EditCategoryButton {
+    display: flex;
+    width: calc(var(--wu) * 306);
+    font-size: 2vh;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.AddCategoryButton button , .EditCategoryButton button {
+    display: flex;
     background-color: var(--black);
     color: var(--yellow);
     border: 2px solid var(--yellow);
@@ -532,6 +553,29 @@
     /* font-size: 3px; */
     padding: 5px;
 }
+.ItemListViewItemCategory {
+    display: flex;
+    height: calc(var(--hu) * 75);
+    width: calc(var(--wu) * 725);
+    background-color: var(--black);
+
+    color: var(--pink);
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+
+   
+
+}
+.ItemListViewItemCategory span {
+    
+    border: 3px solid var(--yellow);
+    padding: 1vh;
+    padding-right: 3vw;
+    padding-left: 3vw;
+    border-radius: 10px;
+}
+
 
 .ItemCategoryList li:first-child {
     border-radius: 10px 10px 0px 0px;

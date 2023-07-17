@@ -1,15 +1,17 @@
-const ItemCategory = () => {
+const ItemCategory = ({ Edit }) => {
   return (
 
-
     <li className="ItemCategory">
-    <form action="ItemCategoryEditForm">
-      <label className="ItemCategoryEditLabel">ItemCategoryEdit</label>
-      <input className="ItemCategoryEditInput" type="text" name="ItemCategoryEdit" id="ItemCategoryEdit" n placeholder="category" />
-    </form>
+      {Edit == true ? (
+        <>
+          <label className="ItemCategoryEditLabel">ItemCategoryEdit</label>
+          <input className="ItemCategoryEditInput" type="text" name="ItemCategoryEdit" id="ItemCategoryEdit" placeholder="category" />
+        </>
+      ) : (
+        <div className="ItemCategoryEditInput" >Category</div>
+      )}
       <div className='ItemCategoryDeleteButton'>Bin </div>
     </li >
-
   )
 }
 

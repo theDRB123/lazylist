@@ -1,35 +1,62 @@
 import { useState } from 'react';
 import { Route } from 'react-router-dom/dist/umd/react-router-dom.development';
+import { useNavigate } from 'react-router-dom/dist/umd/react-router-dom.development';
 import Title from './Title'
 import ItemListContainer from './content/ItemList/ItemListContainer'
 import ViewPanel from './content/ViewPanel/ViewPanelContainer'
 
 
 function App() {
+
+  const navigate = useNavigate();
+  
+
   //data
   const [Items, setItems] = useState([
     {
       id: 1,
+      itemCheck: true ,
       itemName: "item",
       itemCost: 20,
       itemDescription: "itemDes",
-      itemCategory: "category1"
+      itemCategory: "category1",
+      itemLink: "ItemLink1"
+    } ,
+    {
+      id:2,
+      itemCheck: false ,
+      itemName: "item2" ,
+      itemCost: 30,
+      itemDescription: "itemDes2" ,
+      itemCategory: "category1",
+      itemLink: "ItemLink2"
+    },
+    {
+      id:3,
+      itemCheck: false ,
+      itemName: "item2" ,
+      itemCost: 30,
+      itemDescription: "itemDes2" ,
+      itemCategory: "category1",
+      itemLink: "ItemLink2"
     }
   ])
 
-  const [ NewItem , setNewItem] = useState([])
-
   const [categories, setCategories] = useState(["category1", "category2", "category3"])
-  //functions
 
-  // //adding new Item
-  // handle_newItemButton = () => {
-  //   //go to the newItem page
-  // }
 
-  // handle_newItemSave = () => {
-  //   //when clicked the item is added to the list and we move back to the previous page
-  // }
+  //adding new Item
+
+  const handle_itemView = (id) => {
+    navigate(`/${id}`)
+    console.log(`Clicked on Item ${id}`)
+  }
+
+  const handle_newItemButton = () => {
+    navigate('/NewItemView')
+    //go to the newItem page
+    console.log("Clicked AddNewItemButton")
+  }
 
   // handle_newItemCancel = () => {
   //   // the item is not added and we move back to the previous page
@@ -60,16 +87,13 @@ function App() {
 
   // }
 
-  const handleCheck = () => {
-    
-  }
 
   return (
     <div className='Container'>
       <Title />
       <div className='ContentContainer'>
-      <ItemListContainer />
-      <ViewPanel />
+        <ItemListContainer Items={Items} handle_newItemButton={handle_newItemButton} handle_itemView={handle_itemView}/>
+        <ViewPanel Items={Items} setItems={setItems}  />
       </div>
     </div>
   );

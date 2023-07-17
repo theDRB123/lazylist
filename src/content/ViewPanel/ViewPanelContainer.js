@@ -5,15 +5,16 @@ import ItemViewContainer from './ItemView/ItemViewContainer'
 import EditViewContainer from './EditItemView/EditItemViewContainer'
 import NewItemViewContainer from './NewItemView/NewItemViewContainer'
 
-const ViewPanelContainer = () => {
+const ViewPanelContainer = ({Items , setItems}) => {
     return (
         <>
             <div className='ViewPanelContainer'>
                 <Routes>
-                    <Route path='/*' element={<ItemViewContainer />} />
-                    <Route exact path='/EditView' element={<EditViewContainer />} />
-                    <Route exact path='/NewItemView' element={<NewItemViewContainer />} />
-                    <Route exact path='/CostView' element={<CostViewContainer />} />
+                    <Route path='/*' element={<ItemViewContainer Items={Items} setItems={setItems} />} />
+                    <Route path='/:id' element={<ItemViewContainer Items={Items}/>} />
+                    <Route exact path='/EditView/:id' element={<EditViewContainer Items={Items} setItems={setItems} />} />
+                    <Route exact path='/NewItemView/' element={<NewItemViewContainer Items={Items} setItems={setItems}/>} />
+                    <Route exact path='/CostView' element={<CostViewContainer Items={Items}/>} />
                 </Routes>
             </div>
         </>

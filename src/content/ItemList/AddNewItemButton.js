@@ -1,6 +1,6 @@
-const AddNewItemButton = () => {
+const AddNewItemButton = ({handle_newItemButton}) => {
   return (
-    <div className="AddNewItemButton">+</div>
+    <button className="AddNewItemButton" onClick={handle_newItemButton}>+</button>
   )
 }
 
