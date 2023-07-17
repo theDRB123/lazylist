@@ -3,7 +3,7 @@ import NewItemCategoryListContainer from '../ItemCategory/ItemCategoryListContai
 import OptionBar from '../OptionBar'
 import { useState } from 'react'
 
-const NewItemViewContainer = ({Items , setItems}) => {
+const NewItemViewContainer = ({Items , setItems , Categories , setCategories }) => {
   
   const navigate = useNavigate();
 
@@ -11,20 +11,23 @@ const NewItemViewContainer = ({Items , setItems}) => {
   const [NewItemDescription , setNewItemDescription] = useState("");
   const [NewItemCost , setNewItemCost] = useState("");
   const [NewItemLink , setNewItemLink] = useState("");
-  
+  const [NewItemCategoryIndex , setNewItemCategoryIndex] = useState(-1)
   const handleChange = ( value , target) => {
     target(value);
   }
 
   const handle_NewItemSave = () => {
-    const id = Items[Items.length - 1].id + 1;
+    let id;
+    if(Items.length == 0){
+      id = 1;
+    }else id = Items[Items.length - 1].id + 1;
     const newItem = {
       id: id,
       itemCheck: false ,
       itemName: NewItemName,
       itemCost: NewItemCost,
       itemDescription: NewItemDescription ,
-      itemCategory: "category1",
+      itemCategoryIndex: NewItemCategoryIndex,
       itemLink: NewItemLink
     }
     const newItemList = [...Items , newItem]
@@ -33,13 +36,15 @@ const NewItemViewContainer = ({Items , setItems}) => {
     setNewItemCost("")
     setNewItemDescription("")
     setNewItemLink("")
-    
+    setNewItemCategoryIndex(-1)
+    navigate(`/${id}`)
   }
   const handle_NewItemCancel = () => {
     setNewItemName("")
     setNewItemCost("")
     setNewItemDescription("")
     setNewItemLink("")    
+    setNewItemCategoryIndex(-1)
     const id = Items[Items.length - 1].id;
     navigate(`/${id}`)
   }
@@ -68,7 +73,7 @@ const NewItemViewContainer = ({Items , setItems}) => {
           <textarea name="NewItemDescription" id="NewItemDescription" cols="30" rows="10" placeholder='Description' value={NewItemDescription} onChange={(e) => handleChange(e.target.value , setNewItemDescription)}></textarea>
         </div>
 
-        <NewItemCategoryListContainer />
+        <NewItemCategoryListContainer Categories={Categories} setCategories={setCategories} ChangeItemCategoryIndex={NewItemCategoryIndex} setChangeItemCategoryIndex={setNewItemCategoryIndex}/>
 
         <div className='NewItemLink'>
           <label htmlFor="NewItemLink">.</label>

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom/dist/umd/react-router-dom.development"
 
-const OptionBar = ({handle_NewItemSave , handle_NewItemCancel , handle_EditItemSave , handle_EditItemCancel , id , condition}) => {
+const OptionBar = ({handle_NewItemSave , handle_NewItemCancel , handle_EditItemSave , handle_EditItemCancel ,handle_DeleteItem, id , condition}) => {
   
   const navigate = useNavigate()
 
@@ -16,7 +16,7 @@ const OptionBar = ({handle_NewItemSave , handle_NewItemCancel , handle_EditItemS
           <button type="submit" onClick={() => handle_Edit()}>Edit Item</button>
         </div>
         <div className="OptionBarButton2">
-          <button type="submit">Delete Item</button>
+          <button type="submit" onClick={() => handle_DeleteItem()}>Delete Item</button>
         </div>
       </div>
     )

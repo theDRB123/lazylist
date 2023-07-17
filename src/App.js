@@ -19,7 +19,7 @@ function App() {
       itemName: "item",
       itemCost: 20,
       itemDescription: "itemDes",
-      itemCategory: "category1",
+      itemCategoryIndex: 1,
       itemLink: "ItemLink1"
     } ,
     {
@@ -28,7 +28,7 @@ function App() {
       itemName: "item2" ,
       itemCost: 30,
       itemDescription: "itemDes2" ,
-      itemCategory: "category1",
+      itemCategoryIndex: -1,
       itemLink: "ItemLink2"
     },
     {
@@ -37,25 +37,23 @@ function App() {
       itemName: "item2" ,
       itemCost: 30,
       itemDescription: "itemDes2" ,
-      itemCategory: "category1",
+      itemCategoryIndex: 2,
       itemLink: "ItemLink2"
     }
   ])
 
-  const [categories, setCategories] = useState(["category1", "category2", "category3"])
+  const [Categories, setCategories] = useState(["category1", "category2", "category3"])
 
 
   //adding new Item
 
   const handle_itemView = (id) => {
     navigate(`/${id}`)
-    console.log(`Clicked on Item ${id}`)
   }
 
   const handle_newItemButton = () => {
     navigate('/NewItemView')
     //go to the newItem page
-    console.log("Clicked AddNewItemButton")
   }
 
   // handle_newItemCancel = () => {
@@ -93,7 +91,7 @@ function App() {
       <Title />
       <div className='ContentContainer'>
         <ItemListContainer Items={Items} handle_newItemButton={handle_newItemButton} handle_itemView={handle_itemView}/>
-        <ViewPanel Items={Items} setItems={setItems}  />
+        <ViewPanel Items={Items} setItems={setItems} Categories={Categories} setCategories = {setCategories}/>
       </div>
     </div>
   );

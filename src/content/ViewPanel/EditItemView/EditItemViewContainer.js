@@ -3,7 +3,7 @@ import OptionBar from '../OptionBar'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom/dist/umd/react-router-dom.development'
 import { useNavigate } from 'react-router-dom/dist/umd/react-router-dom.development'
-const EditItemViewContainer = ({ Items, setItems }) => {
+const EditItemViewContainer = ({ Items, setItems , Categories , setCategories}) => {
 
     const navigate = useNavigate()
 
@@ -14,6 +14,7 @@ const EditItemViewContainer = ({ Items, setItems }) => {
     const [EditItemDescription, setEditItemDescription] = useState(item.itemDescription);
     const [EditItemCost, setEditItemCost] = useState(item.itemCost);
     const [EditItemLink, setEditItemLink] = useState(item.itemLink);
+    const [EditItemCategoryIndex , setEditItemCategoryIndex] = useState(item.itemCategoryIndex)
 
     const handleChange = (value, target) => {
         target(value);
@@ -28,18 +29,20 @@ const EditItemViewContainer = ({ Items, setItems }) => {
             itemName: EditItemName,
             itemCost: EditItemCost,
             itemDescription: EditItemDescription,
-            itemCategory: "category1",
+            itemCategoryIndex: EditItemCategoryIndex,
             itemLink: EditItemLink
         }
 
         const tempItems = Items.filter((item) => item.id.toString() !== id)
         const newEditItemList = [...tempItems, newEditItem]
+
         setItems(newEditItemList);
 
         setEditItemName("")
         setEditItemCost("")
         setEditItemDescription("")
         setEditItemLink("")
+        setEditItemCategoryIndex(-1)
         navigate(`/${id}`)
     }
     const handle_EditItemCancel = () => {
@@ -47,6 +50,8 @@ const EditItemViewContainer = ({ Items, setItems }) => {
         setEditItemCost("")
         setEditItemDescription("")
         setEditItemLink("")
+        setEditItemCategoryIndex(-1)
+
         const id = Items[Items.length - 1].id;
         navigate(`/${id}`)
     }
@@ -69,7 +74,7 @@ const EditItemViewContainer = ({ Items, setItems }) => {
                     <textarea name="EditItemDescription" id="EditItemDescription" cols="30" rows="10" placeholder='Editable Item Description' value={EditItemDescription} onChange={(e) => handleChange(e.target.value, setEditItemDescription)}></textarea>
                 </div>
 
-                <EditItemCategoryListContainer />
+                <EditItemCategoryListContainer Categories={Categories} setCategories={setCategories} ChangeItemCategoryIndex={EditItemCategoryIndex} setChangeItemCategoryIndex={setEditItemCategoryIndex}/>
 
                 <div className='EditItemLink'>
                     <label htmlFor="EditItemLink"></label>

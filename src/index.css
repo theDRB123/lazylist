@@ -354,7 +354,7 @@
 
     text-align: center;
     justify-content: center;
-
+    align-items: center;
     
     font-size: 3vh;
 
@@ -399,12 +399,16 @@
     width: 50%;
     align-items: center;
     justify-content: center;
+
 }
 .OptionBarButton1 button {
     background-color: var(--black);
-    border: none;
+    border: 3px solid var(--yellow);
+    border-radius: 10px;
     color: var(--yellow);
     padding: 5px;
+
+    transition: 300ms;
 }
 
 
@@ -416,20 +420,25 @@
 }
 .OptionBarButton2 button {
     background-color: var(--black);
-    border: none;
+    border: 3px solid var(--yellow);
+    border-radius: 10px;
     color: var(--yellow);
     padding: 5px;
+
+    transition: 300ms;
 }
 
 
 .OptionBarButton1 button:hover {
     border: 3px solid var(--yellow);
-    border-radius: 10px;
+    border-radius: 5px;
+    padding: 8px;
 }
 
 .OptionBarButton2 button:hover {
     border: 3px solid var(--yellow);
-    border-radius: 10px;
+    border-radius: 5px;
+    padding: 8px;
 }
 
 /* CategoryList */
@@ -463,13 +472,16 @@
     align-items: center;
 }
 
+
 .ButtonContainer {
-    display: flex;
+    display: none;
+    opacity: 0;
+    transition: 300ms;
     width: calc(var(--wu) * 350);
     margin: auto;
     margin-right: 0px;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
 }
 
 .AddCategoryButton {
@@ -486,9 +498,8 @@
     font-size: 2vh;
     text-align: center;
     align-items: center;
-    justify-content: center;
+    justify-content:left;
 }
-
 
 .AddCategoryButton button , .EditCategoryButton button {
     display: flex;
@@ -497,6 +508,14 @@
     border: 2px solid var(--yellow);
     padding: 3px;
     border-radius: 10px;
+    transition: 300ms;
+}
+.AddCategoryButton button:hover, .EditCategoryButton button:hover {
+    
+    border: 2px solid var(--yellow);
+    padding: 5px;
+    border-radius: 5px;
+
 }
 .ItemCategoryList::-webkit-scrollbar {
     background-color: orange;
@@ -517,7 +536,9 @@
 }
 
 .ItemCategoryList {
-    display: flex;
+    display: none;
+    opacity: 0;
+    transition: 300ms;
     flex-direction: column;
     position: absolute;
     box-sizing: content-box;
@@ -555,6 +576,8 @@
 }
 .ItemListViewItemCategory {
     display: flex;
+    opacity: 1;
+    transition: 300ms;
     height: calc(var(--hu) * 75);
     width: calc(var(--wu) * 725);
     background-color: var(--black);

@@ -1,34 +1,43 @@
 import OptionBar from '../OptionBar'
-
+import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom'
 
-const ItemViewContainer = ({Items , setItems}) => {
+const ItemViewContainer = ({ Items, setItems , Categories}) => {
 
-    let { id  } = useParams();
+    const navigate = useNavigate()
+    let { id } = useParams();
 
-    const handle_deleteItem = () => {
-        const tempItems = Items.filter((item) => item.id !== id)
+    const handle_DeleteItem = () => {
+        const tempItems = Items.filter((item) => item.id.toString() !== id)
         setItems(tempItems)
+        navigate(`/0`)
     }
 
-    
-    console.log(id)
-    if (id == undefined) {
-        id = 1;        
+    const itemCategory = (value) => {
+        
+    if(value !== -1)
+    {
+        return(Categories[value])
+    }else return "none"
     }
-    console.log(id)
+
     const item = Items.find(item => (item.id.toString() === (id).toString()))
     console.log(item)
     return (
         <div className="ItemViewContainer">
-            <div className='NameAndCostContainer'>
-                <div className="ItemName">{item.itemName}</div>
-                <div className="ItemCost">{item.itemCost}</div>
-            </div>
-            <div className="ItemDescription">{item.itemDescription}</div>
-            <div className="ViewItemCategory">{item.itemCategory}</div>
-            <div className="ItemLink">{item.itemLink}</div>
-            <OptionBar condition={1} id={id} />
+            {id > 0 ? (
+                <>
+                    <div className='NameAndCostContainer'>
+                        <div className="ItemName">{item.itemName}</div>
+                        <div className="ItemCost">{item.itemCost}</div>
+                    </div>
+                    <div className="ItemDescription">{item.itemDescription}</div>
+                    <div className="ViewItemCategory">{itemCategory(item.itemCategoryIndex)}</div>
+                    <div className="ItemLink">{item.itemLink}</div>
+                    <OptionBar condition={1} id={id} handle_DeleteItem={handle_DeleteItem} />
+                </>
+            ) : (<> </>)}
+
         </div>
     )
 }

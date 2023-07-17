@@ -5,16 +5,16 @@ import ItemViewContainer from './ItemView/ItemViewContainer'
 import EditViewContainer from './EditItemView/EditItemViewContainer'
 import NewItemViewContainer from './NewItemView/NewItemViewContainer'
 
-const ViewPanelContainer = ({Items , setItems}) => {
+const ViewPanelContainer = ({Items , setItems , Categories , setCategories}) => {
     return (
         <>
             <div className='ViewPanelContainer'>
                 <Routes>
-                    <Route path='/*' element={<ItemViewContainer Items={Items} setItems={setItems} />} />
-                    <Route path='/:id' element={<ItemViewContainer Items={Items}/>} />
-                    <Route exact path='/EditView/:id' element={<EditViewContainer Items={Items} setItems={setItems} />} />
-                    <Route exact path='/NewItemView/' element={<NewItemViewContainer Items={Items} setItems={setItems}/>} />
-                    <Route exact path='/CostView' element={<CostViewContainer Items={Items}/>} />
+                    <Route path='/*' element={<ItemViewContainer Items={Items} setItems={setItems} Categories={Categories}/>} />
+                    <Route path='/:id' element={<ItemViewContainer Items={Items} setItems={setItems} Categories={Categories}/>} />
+                    <Route exact path='/EditView/:id' element={<EditViewContainer Items={Items} setItems={setItems} Categories={Categories} setCategories={setCategories}/>} />
+                    <Route exact path='/NewItemView/' element={<NewItemViewContainer Items={Items} setItems={setItems} Categories={Categories} setCategories={setCategories}/>} />
+                    <Route exact path='/CostView' element={<CostViewContainer Items={Items} Categories={Categories} setCategories={setCategories} />} />
                 </Routes>
             </div>
         </>
