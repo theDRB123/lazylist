@@ -700,14 +700,15 @@
     border-radius: 10px;
 }
 
+.ItemCategoryList li:last-child {
+    border-radius: 0px 0px 10px 10px;
+}
 
 .ItemCategoryList li:first-child {
     border-radius: 10px 10px 0px 0px;
 }
 
-.ItemCategoryList li:last-child {
-    border-radius: 0px 0px 10px 10px;
-}
+
 
 .ItemCategory:hover {
     border-radius: 5px;

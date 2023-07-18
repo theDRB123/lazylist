@@ -1,6 +1,5 @@
 import ItemList from './ItemList'
 import AddNewItemButton from './AddNewItemButton'
-import Item from './Item'
 const ItemListContainer = ( {Items , handle_newItemButton , handle_itemView}) => {
     return (
         <>

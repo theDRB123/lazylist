@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Route } from 'react-router-dom/dist/umd/react-router-dom.development';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom/dist/umd/react-router-dom.development';
 import Title from './Title'
 import ItemListContainer from './content/ItemList/ItemListContainer'
@@ -12,39 +12,14 @@ function App() {
   
 
   //data
-  const [Items, setItems] = useState([
-    // {
-    //   id: 1,
-    //   itemCheck: true ,
-    //   itemName: "item",
-    //   itemCost: 20,
-    //   itemDescription: "itemDes",
-    //   itemCategoryIndex: 1,
-    //   itemLink: "ItemLink1"
-    // } ,
-    // {
-    //   id:2,
-    //   itemCheck: false ,
-    //   itemName: "item2" ,
-    //   itemCost: 30,
-    //   itemDescription: "itemDes2" ,
-    //   itemCategoryIndex: -1,
-    //   itemLink: "ItemLink2"
-    // },
-    // {
-    //   id:3,
-    //   itemCheck: false ,
-    //   itemName: "item2" ,
-    //   itemCost: 30,
-    //   itemDescription: "itemDes2" ,
-    //   itemCategoryIndex: 2,
-    //   itemLink: "ItemLink2"
-    // }
-  ])
+  const [Items, setItems] = useState(JSON.parse(localStorage.getItem('ListItems'))||[])
 
-  const [Categories, setCategories] = useState(["category1", "category2", "category3"])
+  const [Categories, setCategories] = useState(JSON.parse(localStorage.getItem('CategoryList')) ||[])
 
-
+  useEffect( () => {
+    localStorage.setItem('ListItems' , JSON.stringify(Items))
+    localStorage.setItem('CategoryList' , JSON.stringify(Categories))
+  },[Items , Categories])
   //adding new Item
 
   const handle_itemView = (id) => {
