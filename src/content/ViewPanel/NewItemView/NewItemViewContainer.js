@@ -21,6 +21,7 @@ const NewItemViewContainer = ({Items , setItems , Categories , setCategories }) 
     if(Items.length == 0){
       id = 1;
     }else id = Items[Items.length - 1].id + 1;
+    console.log(`added ${id}`);
     const newItem = {
       id: id,
       itemCheck: false ,
@@ -57,12 +58,12 @@ const NewItemViewContainer = ({Items , setItems , Categories , setCategories }) 
 
           <div className="NewItemName">
             <label htmlFor="NewItemName">NewItemName</label>
-            <input type="text" id='NewItemName' placeholder='Item Name'  onChange={(e) => (handleChange(e.target.value , setNewItemName)) } value={NewItemName}/>
+            <input type="text" id='NewItemName'className='NewItemNameInput' placeholder='Item Name'  onChange={(e) => (handleChange(e.target.value , setNewItemName)) } value={NewItemName}/>
           </div>
 
           <div className="NewItemCost">
             <label htmlFor="NewItemCost">NewItemCost</label>
-            <input type="text" id='NewItemCost' placeholder='Cost' value={NewItemCost} onChange={(e) => (handleChange(e.target.value , setNewItemCost))}/>
+            <input type="text" id='NewItemCost' className='NewItemCostInput' placeholder='Cost' value={NewItemCost} onChange={(e) => (handleChange(e.target.value , setNewItemCost))}/>
             {/* onchange will run the function which changes the value so that we dont need a save button */}
           </div>
 
@@ -70,14 +71,14 @@ const NewItemViewContainer = ({Items , setItems , Categories , setCategories }) 
 
         <div className="NewItemDescription">
           <label htmlFor="NewItemDescription">New Item Description</label>
-          <textarea name="NewItemDescription" id="NewItemDescription" cols="30" rows="10" placeholder='Description' value={NewItemDescription} onChange={(e) => handleChange(e.target.value , setNewItemDescription)}></textarea>
+          <textarea name="NewItemDescription" id="NewItemDescription" className='NewItemDescriptionInput'cols="30" rows="10" placeholder='Description' value={NewItemDescription} onChange={(e) => handleChange(e.target.value , setNewItemDescription)}></textarea>
         </div>
 
         <NewItemCategoryListContainer Categories={Categories} setCategories={setCategories} ChangeItemCategoryIndex={NewItemCategoryIndex} setChangeItemCategoryIndex={setNewItemCategoryIndex}/>
 
         <div className='NewItemLink'>
           <label htmlFor="NewItemLink">.</label>
-          <input type="text" id='NewItemLink' className='NewItemLink' placeholder='{Link}' value={NewItemLink} onChange={(e) => handleChange(e.target.value , setNewItemLink)}/>
+          <input type="text" id='NewItemLink' className='NewItemLinkInput' placeholder='{Link}' value={NewItemLink} onChange={(e) => handleChange(e.target.value , setNewItemLink)}/>
         </div>
         <OptionBar handle_NewItemSave={handle_NewItemSave} handle_NewItemCancel={handle_NewItemCancel} condition={2}/>
       </div>

@@ -2,7 +2,7 @@ import OptionBar from '../OptionBar'
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom'
 
-const ItemViewContainer = ({ Items, setItems , Categories}) => {
+const ItemViewContainer = ({ Items, setItems, Categories }) => {
 
     const navigate = useNavigate()
     let { id } = useParams();
@@ -14,15 +14,18 @@ const ItemViewContainer = ({ Items, setItems , Categories}) => {
     }
 
     const itemCategory = (value) => {
-        
-    if(value !== -1)
-    {
-        return(Categories[value])
-    }else return "none"
+        if (value !== -1) {
+            return (Categories[value])
+        } else return "none"
     }
 
-    const item = Items.find(item => (item.id.toString() === (id).toString()))
-    console.log(item)
+    let item
+
+    if (id !== undefined) {
+         item = Items.find(item => (item.id.toString() === (id).toString()))
+    }else {item = Items.find(item => item.id === 1)}
+
+    // console.log(item)
     return (
         <div className="ItemViewContainer">
             {id > 0 ? (

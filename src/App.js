@@ -13,33 +13,33 @@ function App() {
 
   //data
   const [Items, setItems] = useState([
-    {
-      id: 1,
-      itemCheck: true ,
-      itemName: "item",
-      itemCost: 20,
-      itemDescription: "itemDes",
-      itemCategoryIndex: 1,
-      itemLink: "ItemLink1"
-    } ,
-    {
-      id:2,
-      itemCheck: false ,
-      itemName: "item2" ,
-      itemCost: 30,
-      itemDescription: "itemDes2" ,
-      itemCategoryIndex: -1,
-      itemLink: "ItemLink2"
-    },
-    {
-      id:3,
-      itemCheck: false ,
-      itemName: "item2" ,
-      itemCost: 30,
-      itemDescription: "itemDes2" ,
-      itemCategoryIndex: 2,
-      itemLink: "ItemLink2"
-    }
+    // {
+    //   id: 1,
+    //   itemCheck: true ,
+    //   itemName: "item",
+    //   itemCost: 20,
+    //   itemDescription: "itemDes",
+    //   itemCategoryIndex: 1,
+    //   itemLink: "ItemLink1"
+    // } ,
+    // {
+    //   id:2,
+    //   itemCheck: false ,
+    //   itemName: "item2" ,
+    //   itemCost: 30,
+    //   itemDescription: "itemDes2" ,
+    //   itemCategoryIndex: -1,
+    //   itemLink: "ItemLink2"
+    // },
+    // {
+    //   id:3,
+    //   itemCheck: false ,
+    //   itemName: "item2" ,
+    //   itemCost: 30,
+    //   itemDescription: "itemDes2" ,
+    //   itemCategoryIndex: 2,
+    //   itemLink: "ItemLink2"
+    // }
   ])
 
   const [Categories, setCategories] = useState(["category1", "category2", "category3"])

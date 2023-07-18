@@ -8,6 +8,7 @@ const EditItemViewContainer = ({ Items, setItems , Categories , setCategories}) 
     const navigate = useNavigate()
 
     const { id } = useParams()
+
     const item = Items.find((item) => item.id.toString() === id)
 
     const [EditItemName, setEditItemName] = useState(item.itemName);
@@ -23,8 +24,9 @@ const EditItemViewContainer = ({ Items, setItems , Categories , setCategories}) 
 
 
     const handle_EditItemSave = () => {
+        console.log(`Edited ${id}`);
         const newEditItem = {
-            id: id,
+            id: item.id,
             itemCheck: false,
             itemName: EditItemName,
             itemCost: EditItemCost,
@@ -33,10 +35,12 @@ const EditItemViewContainer = ({ Items, setItems , Categories , setCategories}) 
             itemLink: EditItemLink
         }
 
-        const tempItems = Items.filter((item) => item.id.toString() !== id)
-        const newEditItemList = [...tempItems, newEditItem]
+        var Index = Items.findIndex((item) => item.id.toString() === id)
+        console.log(Index)
+        let tempArr = Items
+        tempArr[Index] = newEditItem
 
-        setItems(newEditItemList);
+        setItems(tempArr);
 
         setEditItemName("")
         setEditItemCost("")
@@ -62,23 +66,23 @@ const EditItemViewContainer = ({ Items, setItems , Categories , setCategories}) 
 
                     <div className="EditItemName">
                         <label htmlFor="EditItemName">item.itemName</label>
-                        <input type="text" id='EditItemName' placeholder='EditableItemName' value={EditItemName} onChange={(e) => handleChange(e.target.value, setEditItemName)} />
+                        <input type="text" id='EditItemName' className='EditItemNameInput' placeholder='EditableItemName' value={EditItemName} onChange={(e) => handleChange(e.target.value, setEditItemName)} />
                     </div>
                     <div className="EditItemCost">
                         <label htmlFor="EditItemCost">Editable item cost</label>
-                        <input type="text" placeholder='cost' value={EditItemCost} onChange={(e) => handleChange(e.target.value, setEditItemCost)} />
+                        <input type="text" placeholder='cost' className='EditItemCostInput' value={EditItemCost} onChange={(e) => handleChange(e.target.value, setEditItemCost)} />
                     </div>
                 </div>
                 <div className="EditItemDescription">
                     <label htmlFor="EditItemDescription">Editable Item Description</label>
-                    <textarea name="EditItemDescription" id="EditItemDescription" cols="30" rows="10" placeholder='Editable Item Description' value={EditItemDescription} onChange={(e) => handleChange(e.target.value, setEditItemDescription)}></textarea>
+                    <textarea name="EditItemDescription" id="EditItemDescription" className='EditItemDescriptionInput' cols="30" rows="10" placeholder='Editable Item Description' value={EditItemDescription} onChange={(e) => handleChange(e.target.value, setEditItemDescription)}></textarea>
                 </div>
 
                 <EditItemCategoryListContainer Categories={Categories} setCategories={setCategories} ChangeItemCategoryIndex={EditItemCategoryIndex} setChangeItemCategoryIndex={setEditItemCategoryIndex}/>
 
                 <div className='EditItemLink'>
                     <label htmlFor="EditItemLink"></label>
-                    <input type="text" id='EditItemLink' className="EditItemLink" placeholder='link' value={EditItemLink} onChange={(e) => handleChange(e.target.value, setEditItemLink)} />
+                    <input type="text" id='EditItemLink' className="EditItemLinkInput" placeholder='link' value={EditItemLink} onChange={(e) => handleChange(e.target.value, setEditItemLink)} />
                 </div>
 
                 <OptionBar condition={3} handle_EditItemSave={handle_EditItemSave} handle_EditItemCancel={handle_EditItemCancel} />
