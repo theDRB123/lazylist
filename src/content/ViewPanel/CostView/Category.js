@@ -1,9 +1,9 @@
-const Category = () => {
+const Category = ({ CategoryName, CategoryCost }) => {
     return (
         <li>
             <div className="CostPerCategoryContainer">
-            <div className="CategoryName">Categoryname</div>
-            <div className="CategoryCost">CategoryCost</div>
+                <div className="CategoryName">{CategoryName}</div>
+                <div className="CategoryCost">{CategoryCost}</div>
             </div>
         </li>
     )

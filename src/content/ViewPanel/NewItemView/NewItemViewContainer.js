@@ -33,7 +33,9 @@ const NewItemViewContainer = ({ Items, setItems, Categories, setCategories }) =>
       itemLink: NewItemLink
     }
     const newItemList = [...Items, newItem]
+    
     setItems(newItemList);
+
     setNewItemName("")
     setNewItemCost("")
     setNewItemDescription("")

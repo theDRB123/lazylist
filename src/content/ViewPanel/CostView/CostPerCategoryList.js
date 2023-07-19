@@ -1,9 +1,19 @@
+import Item from "../../ItemList/Item"
 import Category from "./Category"
 
-const CostPerCategoryList = () => {
-  return (
+
+const CostPerCategoryList = ({ CostPerCategoryArray }) => {
+
+    return (
         <ul className="CostPerCategoryList">
-            <Category/>
+            
+            {/* {CostPerCategoryArray.map((element) => {
+
+                (<Category CategoryName={element.CategoryName} CategoryCost={element.CategoryCost} />)
+
+            })} */}
+            {CostPerCategoryArray.map((element , index) => (<Category key={index} CategoryName={element.CategoryName} CategoryCost={element.CategoryCost}/>))}
+            
         </ul>
     )
 }
