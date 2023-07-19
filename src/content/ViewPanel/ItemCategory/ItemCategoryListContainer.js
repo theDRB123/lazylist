@@ -3,10 +3,10 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 // import { Transition } from 'react-transition-group';
 
-const ItemCategoryListContainer = ({ Categories, setCategories , ChangeItemCategoryIndex , setChangeItemCategoryIndex }) => {
+const ItemCategoryListContainer = ({ Items, setItems, Categories, setCategories, ChangeItemCategoryIndex, setChangeItemCategoryIndex }) => {
     const [Show, setShow] = useState(false);
     const [Edit, setEdit] = useState(false)
-    const [NewList , setNewList] = useState(Categories)
+    const [NewList, setNewList] = useState(Categories)
 
     const toggle_itemlist = async (value) => {
         setShow(value)
@@ -16,10 +16,10 @@ const ItemCategoryListContainer = ({ Categories, setCategories , ChangeItemCateg
     const Buttons = document.querySelector(".ButtonContainer")
     const CurrentCategory = document.querySelector(".ItemListViewItemCategory")
 
-    let SelectedCategory ;
+    let SelectedCategory;
     if (ChangeItemCategoryIndex !== -1) {
         SelectedCategory = Categories[ChangeItemCategoryIndex]
-    }else SelectedCategory = "none";
+    } else SelectedCategory = "none";
 
 
     setTimeout(() => {
@@ -55,26 +55,43 @@ const ItemCategoryListContainer = ({ Categories, setCategories , ChangeItemCateg
             document.querySelector(".NewItemDescription").addEventListener('mouseover', () => toggle_itemlist(false))
         } catch { }
         try {
-            document.querySelector(".NewItemLink").addEventListener('mouseover' , () => toggle_itemlist(false) )
-        }catch { }
+            document.querySelector(".NewItemLink").addEventListener('mouseover', () => toggle_itemlist(false))
+        } catch { }
         try {
-            document.querySelector(".EditItemLink").addEventListener('mouseover' , () => toggle_itemlist(false) )
-        }catch { }
+            document.querySelector(".EditItemLink").addEventListener('mouseover', () => toggle_itemlist(false))
+        } catch { }
     }, 1);
 
     const handle_SaveEditedList = () => {
         setCategories(NewList);
     }
     const handle_AddNewList = () => {
-        setNewList([...NewList , "NewCategory"])
-        setCategories([...NewList , "NewCategory"])
+        setNewList([...NewList, ""])
+        setCategories([...NewList, ""])
+        setEdit(true)
     }
+    const handle_RemoveCategory = (index) => {
+        const tempArr = Items.map((item) => {
+            if (item.itemCategoryIndex === index) {
+                let temp = item
+                temp.itemCategoryIndex = -1
+                return (temp)
+            } else return (item)
+        })
+        let tempArr2 = NewList;
+        tempArr2.splice(index, 1)
+        setItems(tempArr)
+        setNewList(tempArr2)
+    }
+
+
+
     return (
         <div className="ItemCategoryListContainer" >
 
             <div className="CategoryLabel">Select Category :-</div>
 
-            <ItemCategoryList Edit={Edit} NewList={NewList} setNewList={setNewList} ChangeItemCategoryIndex={ChangeItemCategoryIndex} setChangeItemCategoryIndex={setChangeItemCategoryIndex} setShow={setShow} />
+            <ItemCategoryList Edit={Edit} NewList={NewList} setNewList={setNewList} ChangeItemCategoryIndex={ChangeItemCategoryIndex} setChangeItemCategoryIndex={setChangeItemCategoryIndex} setShow={setShow} handle_RemoveCategory={handle_RemoveCategory} />
 
             <div className='ButtonContainer'>
                 <div className='AddCategoryButton'>
@@ -91,8 +108,8 @@ const ItemCategoryListContainer = ({ Categories, setCategories , ChangeItemCateg
 
             </div>
 
-            <div className='ItemListViewItemCategory' ><span>{SelectedCategory}</span></div>
-       
+            <div className='ItemListViewItemCategory' ><span >{SelectedCategory}</span></div>
+
         </div>
     )
 }

@@ -733,7 +733,11 @@
 }
 
 .ItemCategoryEditInput::placeholder {
-    color: var(--black);
+    width: 80%;
+    box-sizing: content-box;
+    color: var(--darkBlack);
+    border: 2px solid var(--black);
+    border-radius: 5px;
 }
 
 .ItemCategoryDeleteButton {

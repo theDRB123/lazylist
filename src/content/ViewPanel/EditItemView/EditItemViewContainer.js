@@ -78,7 +78,7 @@ const EditItemViewContainer = ({ Items, setItems , Categories , setCategories}) 
                     <textarea name="EditItemDescription" id="EditItemDescription" className='EditItemDescriptionInput' cols="30" rows="10" placeholder='Editable Item Description' value={EditItemDescription} onChange={(e) => handleChange(e.target.value, setEditItemDescription)}></textarea>
                 </div>
 
-                <EditItemCategoryListContainer Categories={Categories} setCategories={setCategories} ChangeItemCategoryIndex={EditItemCategoryIndex} setChangeItemCategoryIndex={setEditItemCategoryIndex}/>
+                <EditItemCategoryListContainer Items={Items} setItems={setItems} Categories={Categories} setCategories={setCategories} ChangeItemCategoryIndex={EditItemCategoryIndex} setChangeItemCategoryIndex={setEditItemCategoryIndex}/>
 
                 <div className='EditItemLink'>
                     <label htmlFor="EditItemLink"></label>
